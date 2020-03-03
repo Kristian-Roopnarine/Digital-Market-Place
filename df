@@ -1,0 +1,35 @@
+[33mcommit 59b638fa31a9ca83beec47437741e321074dab3a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Kristian <kristian.roopnarine@gmail.com>
+Date:   Tue Mar 3 18:03:02 2020 -0500
+
+    Added models to admin site.
+
+[33mcommit 56b4d4dd6ed23e64b69811ac6ea6cf50d7677aa3[m
+Author: Kristian <kristian.roopnarine@gmail.com>
+Date:   Tue Mar 3 18:02:32 2020 -0500
+
+    Added book list view.
+
+[33mcommit 112886121397336182469dabf0c4eb00e614c7cd[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Kristian <kristian.roopnarine@gmail.com>
+Date:   Tue Mar 3 17:47:05 2020 -0500
+
+    Updated dependencies to include Pillow.
+
+[33mcommit 2ac27c8195923b111b7e8978375cd128b56807e0[m
+Author: Kristian <kristian.roopnarine@gmail.com>
+Date:   Tue Mar 3 17:45:28 2020 -0500
+
+    Created models for marketplace.
+
+[33mcommit c8e3c86a17fddefbd4536690b44868dc52854ee5[m
+Author: Kristian <kristian.roopnarine@gmail.com>
+Date:   Tue Mar 3 17:13:05 2020 -0500
+
+    Added requirements.txt
+
+[33mcommit 04f8ddae8eb88968f8bf5ec20930ba3b397da097[m
+Author: Kristian <kristian.roopnarine@gmail.com>
+Date:   Tue Mar 3 17:11:51 2020 -0500
+
+    first commit.

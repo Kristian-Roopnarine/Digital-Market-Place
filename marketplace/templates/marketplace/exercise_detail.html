@@ -1,14 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is the exercise detail</h1>
-    <p>{{exercise}} - {{exercise.exercise_number}}</p>
-    <p>Found on page {{exercise.page_number}} of the book {{exercise.chapter.book.title}}</p>
-    
-</body>
-</html>
+{% extends 'marketplace/base.html' %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'marketplace:book-list' %}">Book List</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{{exercise.chapter.book.get_absolute_url}}" >{{exercise.chapter.book.title}}</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="{{exercise.chapter.get_absolute_url}}">{{exercise.chapter}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{exercise}}</li>
+{% endblock breadcrumb %}
+
+
+{% block content %}
+    <div class="row">
+        <main class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    {{exercise.chapter.book.title}}
+                </div>
+                <img class="card-img-top" src="{{ exercise.chapter.book.cover.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">{{exercise.chapter.book.pub_date}}</p>
+                </div>
+            </div>        
+        </main>
+
+        <aside class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Solutions
+                </div>
+
+                {% for solution in exercise.solution_set.all %}
+                    <div id="toggle-{{solution.solution_number}}">
+                        <div class="card">
+                            <div class="card-header" id="heading-{{solution.solution_number}}">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-{{solution.solution_number}}" aria-expanded="true" aria-controls="collapse-{{solution.solution_number}}">
+                                        Solution {{solution.solution_number}}
+                                    </button>
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div id="collapse-{{solution.solution_number}}" class="collapse" aria-labelledby="heading-{{solution.solution_number}}" data-parent="#toggle-{{solution.solution_number}}">
+                            <div class="card-image">
+                                <img src="{{ solution.image.url }}" />
+                            </div>
+                        </div>                       
+                    </div>
+                {% endfor %}
+
+            </div>            
+        </aside>
+    </div>
+{% endblock content%}

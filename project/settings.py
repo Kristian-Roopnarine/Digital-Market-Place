@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'marketplace'
+    'marketplace',
+    'crispy_forms',
+    'bootstrap4',
+    'shopping_cart'
 ]
 
 MIDDLEWARE = [
@@ -140,3 +143,6 @@ AUTHENTICATION_BACKENDS = (
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = '/'

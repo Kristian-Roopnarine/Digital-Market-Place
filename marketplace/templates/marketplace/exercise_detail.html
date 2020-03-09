@@ -1,4 +1,6 @@
 {% extends 'marketplace/base.html' %}
+{% load static %}
+
 
 {% block breadcrumb %}
     <li class="breadcrumb-item" aria-current="page"><a href="{% url 'marketplace:book-list' %}">Book List</a></li>
@@ -28,6 +30,8 @@
                     Solutions
                 </div>
 
+                {% if exercise.chapter.book in request.user.userlibrary.book_list %}
+
                 {% for solution in exercise.solution_set.all %}
                     <div id="toggle-{{solution.solution_number}}">
                         <div class="card">
@@ -47,6 +51,13 @@
                         </div>                       
                     </div>
                 {% endfor %}
+
+                {% else %}
+                <div class="text-center">
+                    <h4>You do not have access to this book. <a href="#">Purchase this book</a> to have access to this solution.</h4>
+                    <img src="{% static 'images/lock.jpeg' %}"/>
+                </div>
+                {% endif %}
 
             </div>            
         </aside>

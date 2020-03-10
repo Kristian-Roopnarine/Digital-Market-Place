@@ -1,10 +1,9 @@
 from django.db import models
 from django.conf import settings
 from marketplace.models import Book
+from django.db.models import Sum
 # Create your models here.
-"""
 
-"""
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
@@ -14,6 +13,9 @@ class Order(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def get_total(self):
+        return self.items.all().aggregate(order_total=Sum('book__price'))['order_total']
 
 class OrderItem(models.Model):
     book = models.ForeignKey(Book,on_delete=models.CASCADE)

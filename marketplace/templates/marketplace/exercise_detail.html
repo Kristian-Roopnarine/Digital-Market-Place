@@ -13,15 +13,7 @@
 {% block content %}
     <div class="row">
         <main class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    {{exercise.chapter.book.title}}
-                </div>
-                <img class="card-img-top" src="{{ exercise.chapter.book.cover.url }}" alt="Card image cap">
-                <div class="card-body">
-                    <p class="card-text">{{exercise.chapter.book.pub_date}}</p>
-                </div>
-            </div>        
+            {% include "marketplace/book_snippet.html" with book=exercise.chapter.book %}   
         </main>
 
         <aside class="col-md-8">

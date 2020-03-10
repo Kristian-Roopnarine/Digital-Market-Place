@@ -23,7 +23,7 @@ Projects
 
 '''
 class UserLibrary(models.Model):
-    books = models.ManyToManyField("Book")
+    books = models.ManyToManyField("Book",blank=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
 
     def __str__(self):
